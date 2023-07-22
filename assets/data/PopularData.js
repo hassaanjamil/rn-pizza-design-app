@@ -1,0 +1,45 @@
+const ingredients = [
+  {id: 1, image: require('../images/ham.png')},
+  {id: 2, image: require('../images/tomato.png')},
+  {id: 3, image: require('../images/garlic.png')},
+  {id: 4, image: require('../images/cheese.png')},
+];
+
+export const popularData = [
+  {
+    id: 1,
+    image: require('../images/pizza1.png'),
+    title: 'Primavera Pizza',
+    weight: 'Weight 540 grams',
+    rating: '5.0',
+    price: '$10.50',
+    size: 'Small 12"',
+    crust: 'Thin Crust',
+    delivery: '15 mins',
+    ingredients: ingredients,
+  },
+  {
+    id: 2,
+    image: require('../images/pizza2.png'),
+    title: 'Vegetarian Pizza',
+    weight: 'Weight 450 grams',
+    rating: '4.0',
+    price: '$8.99',
+    size: 'Medium 14"',
+    crust: 'American Crust',
+    delivery: '15 mins',
+    ingredients: ingredients,
+  },
+  {
+    id: 3,
+    image: require('../images/pizza3.png'),
+    title: 'Pepperoni Pizza',
+    weight: 'Weight 700 grams',
+    rating: '5.0',
+    price: '$11.99',
+    size: 'Large 18"',
+    crust: 'Stuffed Crust',
+    delivery: '15 mins',
+    ingredients: ingredients,
+  },
+];
