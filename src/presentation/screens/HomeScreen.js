@@ -9,17 +9,23 @@ import {
   View,
   useColorScheme,
 } from 'react-native';
-import {AppColors, colors} from '../../assets/colors/colors';
+import {AppColors, colors} from '../../../assets/colors/colors';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Feather from 'react-native-vector-icons/Feather';
-import {popularData} from '../../assets/data/PopularData';
-import {categoriesData} from '../../assets/data/CategoriesData';
+import {popularData} from '../../../assets/data/PopularData';
 import {CategoryItem} from '../components/CategoryItem';
 import {PopularItem} from '../components/PopularItem';
+import {useDispatch, useSelector} from 'react-redux';
+import {useEffect} from 'react';
+import {getCategoriesData} from '../../data/redux/slices/CategoriesDataSlice';
+import {getPopularData} from '../../data/redux/slices/PopularDataSlice';
 
 export const HomeScreen = ({navigation}) => {
   const isDarkMode = useColorScheme() === 'dark';
   const appColors = AppColors(isDarkMode);
+
+  const dispatch = useDispatch();
+  const state = useSelector(state => state);
 
   const backgroundStyle = {
     backgroundColor: appColors.background,
@@ -27,6 +33,11 @@ export const HomeScreen = ({navigation}) => {
   const textDarkStyle = {
     color: appColors.textDark,
   };
+
+  useEffect(() => {
+    dispatch(getCategoriesData());
+    dispatch(getPopularData());
+  }, []);
   return (
     <View styles={styles.root}>
       <ScrollView
@@ -38,7 +49,7 @@ export const HomeScreen = ({navigation}) => {
           <View style={styles.headerContainer}>
             <Image
               style={styles.profileImage}
-              source={require('../../assets/images/profile.png')}
+              source={require('../../../assets/images/profile.png')}
             />
             <MaterialCommunityIcons
               name="sort-reverse-variant"
@@ -69,7 +80,7 @@ export const HomeScreen = ({navigation}) => {
           </Text>
           <View style={styles.categoriesListContainer}>
             <FlatList
-              data={categoriesData}
+              data={state.categoriesData.data}
               nestedScrollEnabled={true}
               keyExtractor={item => item.id}
               renderItem={({item, index}) => (
@@ -86,7 +97,7 @@ export const HomeScreen = ({navigation}) => {
           <Text style={[styles.popularTitle, textDarkStyle]}>Popular</Text>
           <View style={styles.popularListContainer}>
             <FlatList
-              data={popularData}
+              data={state.popularData.data}
               nestedScrollEnabled={true}
               scrollEnabled={false}
               keyExtractor={item => item.id}

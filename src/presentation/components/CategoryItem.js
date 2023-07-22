@@ -1,6 +1,6 @@
 import {Image, StyleSheet, Text, View, useColorScheme} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
-import {AppColors, colors} from '../../assets/colors/colors';
+import {AppColors, colors} from '../../../assets/colors/colors';
 
 export const CategoryItem = ({item, index}) => {
   const isDarkMode = useColorScheme() === 'dark';

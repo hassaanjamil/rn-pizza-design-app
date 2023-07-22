@@ -1,7 +1,7 @@
 import {Dimensions, Image, StyleSheet, Text, View} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Feather from 'react-native-vector-icons/Feather';
-import {colors} from '../../assets/colors/colors';
+import {colors} from '../../../assets/colors/colors';
 
 export const PopularItem = ({item, index}) => {
   return (

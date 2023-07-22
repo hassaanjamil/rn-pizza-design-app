@@ -1,4 +1,4 @@
-import {colors} from '../../assets/colors/colors';
+import {colors} from '../../../assets/colors/colors';
 
 const {StyleSheet, View, Image} = require('react-native');
 

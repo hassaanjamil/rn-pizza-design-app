@@ -13,7 +13,7 @@ import {
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Feather from 'react-native-vector-icons/Feather';
-import {colors} from '../../assets/colors/colors';
+import {colors} from '../../../assets/colors/colors';
 import {IngredientItem} from '../components/IngredientItem';
 
 export const DetailScreen = ({route, navigation}) => {

@@ -6,14 +6,14 @@
  */
 
 import React from 'react';
-import {StyleSheet, useColorScheme, View} from 'react-native';
+import {StyleSheet, useColorScheme} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {NavigationContainer} from '@react-navigation/native';
-import {MainNavigator} from './src/navigators/MainNavigator';
+import {MainNavigator} from './src/presentation/navigators/MainNavigator';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {HomeScreen} from './src/screens/HomeScreen';
-import {DetailScreen} from './src/screens/DetailScreen';
+import {Provider} from 'react-redux';
+import store from './src/data/redux/store';
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -25,10 +25,11 @@ const App = () => {
 
   return (
     //<View style={[styles.root, backgroundStyle]}>
-    <NavigationContainer>
-      <MainNavigator />
-    </NavigationContainer>
-    //</View>
+    <Provider store={store}>
+      <NavigationContainer>
+        <MainNavigator />
+      </NavigationContainer>
+    </Provider>
   );
 };
 
